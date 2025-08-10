@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cart - EvAnia</title>
+  <link rel="stylesheet" href="../styles/main.css" />
+  <link rel="stylesheet" href="../styles/navbar.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    .cart-wrap{width:90%;max-width:1000px;margin:24px auto}
+    .cart-item{display:flex;gap:12px;align-items:center;background:#fff;border-radius:var(--radius-lg);box-shadow:var(--shadow-md);padding:12px;margin-bottom:10px}
+    .cart-item img{width:80px;height:80px;object-fit:cover;border-radius:var(--radius-md)}
+    .cart-title{font-weight:600}
+    .cart-price{margin-left:auto;font-weight:700}
+    .cart-actions{display:flex;justify-content:flex-end;gap:12px;margin-top:12px}
+    .btn{padding:10px 14px;border-radius:var(--radius-md);font-weight:600;cursor:pointer}
+    .btn-secondary{background:#fff;border:1px solid var(--ruby);color:var(--ruby)}
+    .btn-primary{background:var(--ruby-gradient);border:0;color:#fff}
+  </style>
+</head>
+<body>
+  <header class="navbar-container">
+    <div class="navbar-row main-nav">
+      <div class="logo"><a href="index.html">EvAnia</a></div>
+      <div class="search-bar"><input type="text" placeholder="Search for experiences, gifts, décor..." /><button><i class="fas fa-search"></i></button></div>
+      <nav class="main-menu"><ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="experiences.html">Experiences</a></li>
+        <li><a href="gifts.html">Gifts</a></li>
+        <li><a href="offers.html" class="highlight">Offers / Deals</a></li>
+        <li><a href="about.html">About Us</a></li>
+      </ul></nav>
+      <div class="utility-nav"><div class="location-selector"><i class="fas fa-map-marker-alt"></i><span>Select Location</span></div><div class="account"><i class="fas fa-user"></i></div><div class="cart"><i class="fas fa-shopping-cart"></i><span class="cart-count">0</span></div></div>
+    </div>
+  </header>
+
+  <main>
+    <div class="cart-wrap">
+      <h2>Your Cart</h2>
+      <div class="cart-item">
+        <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=400&q=70" alt="Romantic Dinner"/>
+        <div>
+          <div class="cart-title">Romantic Dinner Setup</div>
+          <div class="cart-meta">Qty: 1</div>
+        </div>
+        <div class="cart-price">₹3,999</div>
+      </div>
+      <div class="cart-actions">
+        <a href="index.html" class="btn btn-secondary">Continue Shopping</a>
+        <a href="book.html?title=Cart%20Checkout&price=3999&img=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1519225421980-715cb0215aed%3Fauto%3Dformat%26fit%3Dcrop%26w%3D400%26q%3D70" class="btn btn-primary">Proceed to Book</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer"><div class="footer-bottom"><p>&copy; 2025 EvAnia. All Rights Reserved.</p></div></footer>
+  <script src="../scripts/auth.js"></script>
+</body>
+</html>
+
+

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Book Experience - EvAnia</title>
+  <link rel="stylesheet" href="../styles/main.css" />
+  <link rel="stylesheet" href="../styles/navbar.css" />
+  <link rel="stylesheet" href="../styles/book.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+</head>
+<body class="booking-page">
+  <header class="navbar-container">
+    <div class="navbar-row main-nav">
+      <div class="logo"><a href="index.html">EvAnia</a></div>
+      <div class="search-bar">
+        <input type="text" placeholder="Search for experiences, gifts, décor..." />
+        <button><i class="fas fa-search"></i></button>
+      </div>
+      <nav class="main-menu">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="experiences.html">Experiences</a></li>
+          <li><a href="gifts.html">Gifts</a></li>
+          <li><a href="offers.html" class="highlight">Offers / Deals</a></li>
+          <li><a href="about.html">About Us</a></li>
+        </ul>
+      </nav>
+      <div class="utility-nav">
+        <div class="location-selector"><i class="fas fa-map-marker-alt"></i><span>Select Location</span></div>
+        <div class="account"><i class="fas fa-user"></i></div>
+        <div class="cart"><i class="fas fa-shopping-cart"></i><span class="cart-count">0</span></div>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero-mini">
+    <h1>Complete Your Booking</h1>
+  </section>
+  <div class="progress">
+    <span class="step active">Overview</span>
+    <span class="dot"></span>
+    <span class="step">Date & Time</span>
+    <span class="dot"></span>
+    <span class="step">Location</span>
+    <span class="dot"></span>
+    <span class="step">Customize</span>
+    <span class="dot"></span>
+    <span class="step">Offers</span>
+    <span class="dot"></span>
+    <span class="step">Payment</span>
+  </div>
+
+  <main>
+    <div class="booking-container">
+      <div class="booking-card">
+        <h2>Selected Item / Package</h2>
+        <div class="summary-header" style="margin-bottom:14px">
+          <img class="summary-image" alt="Selected item" />
+          <div>
+            <div class="summary-title">Selected Experience</div>
+            <div class="applied-offer" style="display:none" id="appliedOffer"></div>
+          </div>
+        </div>
+        <div id="itemMeta" style="margin:6px 0 14px;color:var(--text-light);font-size:.95rem"></div>
+        <p id="itemDesc" style="margin:0 0 10px;color:var(--text-dark);display:none"></p>
+
+        <h2 class="section-title">Date & Time</h2>
+        <form id="bookingForm" class="booking-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fullname">Full Name</label>
+              <input id="fullname" required placeholder="Your full name" />
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone</label>
+              <input id="phone" required placeholder="9876543210" />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input id="email" type="email" required placeholder="you@example.com" />
+            </div>
+            <div class="form-group">
+              <label for="date">Date</label>
+              <input id="date" type="date" required />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="time">Time</label>
+              <select id="time" required>
+                <option value="" disabled selected>Select</option>
+                <option>10:00 AM</option>
+                <option>12:00 PM</option>
+                <option>3:00 PM</option>
+                <option>6:00 PM</option>
+                <option>8:00 PM</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="address">Address</label>
+              <input id="address" required placeholder="Event address" />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="quantity">Quantity</label>
+              <select id="quantity">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+              </select>
+            </div>
+          </div>
+
+          <h2 class="section-title">Customization</h2>
+          <div class="addon-list">
+            <label class="addon"><input type="checkbox" data-addon-price="799"/> Rose Petals Pathway (+₹799)</label>
+            <label class="addon"><input type="checkbox" data-addon-price="1299"/> LED Letters (+₹1,299)</label>
+            <label class="addon"><input type="checkbox" data-addon-price="599"/> Personalized Message Card (+₹599)</label>
+            <label class="addon"><input type="checkbox" data-addon-price="999"/> Extra Balloons (+₹999)</label>
+          </div>
+
+          <h2 class="section-title">Offers & Coupons</h2>
+          <div class="coupon-row">
+            <input id="couponInput" placeholder="Enter coupon code"/>
+            <button type="button" class="secondary-btn" id="applyCouponBtn">Apply</button>
+          </div>
+          <div id="couponMsg" style="color:var(--ruby);margin-top:6px;display:none"></div>
+          <div class="savings" id="savingsText" style="display:none">You save: ₹0</div>
+          <div id="offerChoice" style="display:none;margin-top:8px">
+            <div style="font-weight:600;margin-bottom:6px">Multiple offers available</div>
+            <label class="addon"><input type="radio" name="offerpick" value="deal"/> Use pre-applied deal</label>
+            <label class="addon"><input type="radio" name="offerpick" value="coupon"/> Use coupon</label>
+          </div>
+
+          <h2 class="section-title">Payment</h2>
+          <div class="form-row">
+            <label class="addon"><input type="radio" name="pay" value="card" checked/> Credit/Debit Card</label>
+            <label class="addon"><input type="radio" name="pay" value="upi"/> UPI</label>
+            <label class="addon"><input type="radio" name="pay" value="cod"/> Cash on Delivery</label>
+          </div>
+          <div class="form-group">
+            <label for="notes">Notes</label>
+            <textarea id="notes" placeholder="Any special requests"></textarea>
+          </div>
+          <div class="booking-actions">
+            <button type="submit" class="primary-btn">Confirm Booking</button>
+            <a href="index.html" class="secondary-btn">Cancel</a>
+          </div>
+        </form>
+      </div>
+      <aside class="summary-card sticky" id="billingSummary">
+        <h3>Billing Summary</h3>
+        <div class="summary-row"><span>Base Price</span><strong class="summary-base">₹0</strong></div>
+        <div class="summary-row"><span>Add-ons</span><strong class="summary-addons">₹0</strong></div>
+        <div class="summary-row"><span>Discount</span><strong class="summary-discount">-₹0</strong></div>
+        <div class="summary-row"><span>Taxes (18%)</span><strong class="summary-tax">₹0</strong></div>
+        <div class="summary-row summary-total"><span>Total</span><strong class="summary-total-amt">₹0</strong></div>
+        <div class="savings" id="savingsText" style="display:none">You save: ₹0</div>
+        <button class="primary-btn" id="summaryCheckoutBtn" style="width:100%;margin-top:10px">Checkout</button>
+      </aside>
+    </div>
+  </main>
+
+  <div class="mobile-billbar" id="mobileBillbar" style="display:none">
+    <div>Total: <strong class="summary-total-amt">₹0</strong></div>
+    <button class="primary-btn" id="mobileCheckoutBtn">Checkout</button>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-column">
+        <h3>EvAnia</h3>
+        <p>Making celebrations memorable with elegant décor and personalized experiences.</p>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-pinterest"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+      <div class="footer-column">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="experiences.html">Experiences</a></li>
+          <li><a href="gifts.html">Gifts</a></li>
+          <li><a href="offers.html">Offers / Deals</a></li>
+          <li><a href="about.html">About Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>Categories</h4>
+        <ul>
+          <li><a href="category.html?category=romantic-surprises">Romantic Surprises</a></li>
+          <li><a href="category.html?category=birthday-anniversary">Birthday & Anniversary</a></li>
+          <li><a href="category.html?category=baby-shower-kids">Baby Shower & Kids</a></li>
+          <li><a href="category.html?category=corporate-special-events">Corporate Events</a></li>
+          <li><a href="category.html?category=festivals">Festivals</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>Contact Us</h4>
+        <ul class="contact-info">
+          <li><i class="fas fa-map-marker-alt"></i> 123 Celebration Street, Decor City</li>
+          <li><i class="fas fa-phone"></i> +91 98765 43210</li>
+          <li><i class="fas fa-envelope"></i> info@evania.com</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom"><p>&copy; 2025 EvAnia. All Rights Reserved.</p></div>
+  </footer>
+
+  <script src="../scripts/auth.js"></script>
+  <script src="../scripts/main.js"></script>
+  <script src="../scripts/book.js"></script>
+</body>
+</html>
+
+

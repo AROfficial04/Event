@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Orders - EvAnia</title>
+  <link rel="stylesheet" href="../styles/main.css" />
+  <link rel="stylesheet" href="../styles/navbar.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    .orders-wrap{width:90%;max-width:1100px;margin:24px auto}
+    .order-card{background:#fff;border-radius:var(--radius-lg);box-shadow:var(--shadow-md);padding:16px;margin-bottom:12px;display:flex;gap:12px;align-items:center}
+    .order-card img{width:80px;height:80px;border-radius:var(--radius-md);object-fit:cover}
+    .order-title{font-weight:600}
+    .order-meta{color:var(--text-light);font-size:.9rem}
+    .order-price{margin-left:auto;font-weight:700}
+  </style>
+</head>
+<body>
+  <header class="navbar-container">
+    <div class="navbar-row main-nav">
+      <div class="logo"><a href="index.html">EvAnia</a></div>
+      <div class="search-bar"><input type="text" placeholder="Search for experiences, gifts, décor..." /><button><i class="fas fa-search"></i></button></div>
+      <nav class="main-menu"><ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="experiences.html">Experiences</a></li>
+        <li><a href="gifts.html">Gifts</a></li>
+        <li><a href="offers.html" class="highlight">Offers / Deals</a></li>
+        <li><a href="about.html">About Us</a></li>
+      </ul></nav>
+      <div class="utility-nav"><div class="location-selector"><i class="fas fa-map-marker-alt"></i><span>Select Location</span></div><div class="account"><i class="fas fa-user"></i></div><div class="cart"><i class="fas fa-shopping-cart"></i><span class="cart-count">0</span></div></div>
+    </div>
+  </header>
+
+  <main>
+    <div class="orders-wrap">
+      <h2>Orders & Bookings</h2>
+      <div class="order-card">
+        <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=400&q=70" alt="Romantic Dinner"/>
+        <div>
+          <div class="order-title">Romantic Dinner Setup</div>
+          <div class="order-meta">Booked for 22 Dec, 7:00 PM • Status: Confirmed</div>
+        </div>
+        <div class="order-price">₹3,999</div>
+      </div>
+      <div class="order-card">
+        <img src="https://images.unsplash.com/photo-1464207687429-7505649dae38?auto=format&fit=crop&w=400&q=70" alt="Birthday Décor"/>
+        <div>
+          <div class="order-title">Premium Birthday Décor</div>
+          <div class="order-meta">Completed on 05 Dec • Thank you!</div>
+        </div>
+        <div class="order-price">₹2,499</div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer"><div class="footer-bottom"><p>&copy; 2025 EvAnia. All Rights Reserved.</p></div></footer>
+
+  <script src="../scripts/auth.js"></script>
+</body>
+</html>
+
+

@@ -1,0 +1,143 @@
+/* Decor Listings Styles for EvAnia */
+
+.decor-listings {
+    background-color: var(--off-white);
+    padding: 4rem 0;
+}
+
+.listings-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.decor-item {
+    background-color: var(--white);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition-normal);
+}
+
+.decor-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+}
+
+.decor-image {
+    position: relative;
+    height: 220px;
+    overflow: hidden;
+}
+
+.decor-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition-normal);
+}
+
+.decor-item:hover .decor-image img {
+    transform: scale(1.05);
+}
+
+.decor-details {
+    padding: 20px;
+}
+
+.decor-details h3 {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    line-height: 1.4;
+    height: 3rem;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.price {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.price .discounted {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--gold);
+}
+
+.price .original {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    text-decoration: line-through;
+}
+
+.rating {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.rating i {
+    color: var(--gold);
+    font-size: 0.9rem;
+}
+
+.review-count {
+    margin-left: 5px;
+    font-size: 0.8rem;
+    color: var(--text-light);
+}
+
+.book-now {
+    width: 100%;
+    padding: 10px;
+    background: var(--ruby-gradient);
+    color: var(--white);
+    border: none;
+    border-radius: var(--radius-md);
+    font-weight: 500;
+    transition: var(--transition-fast);
+}
+
+.book-now:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+/* Responsive Listings */
+@media (max-width: 1200px) {
+    .listings-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 992px) {
+    .decor-image {
+        height: 180px;
+    }
+}
+
+@media (max-width: 768px) {
+    .listings-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+}
+
+@media (max-width: 576px) {
+    .listings-container {
+        grid-template-columns: 1fr;
+        width: 95%;
+    }
+    
+    .decor-image {
+        height: 200px;
+    }
+}

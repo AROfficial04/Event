@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Profile - EvAnia</title>
+  <link rel="stylesheet" href="../styles/main.css" />
+  <link rel="stylesheet" href="../styles/navbar.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    .profile-container{width:90%;max-width:1000px;margin:24px auto;display:grid;grid-template-columns:260px 1fr;gap:24px}
+    .profile-card{background:#fff;border-radius:var(--radius-lg);box-shadow:var(--shadow-md);padding:20px}
+    .profile-side .avatar{width:100px;height:100px;border-radius:50%;object-fit:cover;margin-bottom:10px}
+    .profile-field{margin:8px 0;color:var(--text-dark)}
+    .profile-field span{color:var(--text-light)}
+    .orders-list .order{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--silver-light)}
+    @media(max-width:992px){.profile-container{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <header class="navbar-container">
+    <div class="navbar-row main-nav">
+      <div class="logo"><a href="index.html">EvAnia</a></div>
+      <div class="search-bar"><input type="text" placeholder="Search for experiences, gifts, décor..." /><button><i class="fas fa-search"></i></button></div>
+      <nav class="main-menu"><ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="experiences.html">Experiences</a></li>
+        <li><a href="gifts.html">Gifts</a></li>
+        <li><a href="offers.html" class="highlight">Offers / Deals</a></li>
+        <li><a href="about.html">About Us</a></li>
+      </ul></nav>
+      <div class="utility-nav"><div class="location-selector"><i class="fas fa-map-marker-alt"></i><span>Select Location</span></div><div class="account"><i class="fas fa-user"></i></div><div class="cart"><i class="fas fa-shopping-cart"></i><span class="cart-count">0</span></div></div>
+    </div>
+  </header>
+
+  <main>
+    <div class="profile-container">
+      <aside class="profile-card profile-side">
+        <img class="avatar" src="https://images.unsplash.com/photo-1494790108755-2616b612b786?auto=format&fit=crop&w=200&q=70" alt="User avatar"/>
+        <div class="profile-name">Welcome, <strong id="profileName">Guest</strong></div>
+        <div class="profile-field"><span>Email/Phone:</span> <strong id="profileId">-</strong></div>
+        <a href="orders.html" class="view-orders" style="display:inline-block;margin-top:10px;color:var(--ruby);font-weight:600">View Orders / Bookings</a>
+      </aside>
+      <section class="profile-card">
+        <h2>Recent Orders</h2>
+        <div class="orders-list">
+          <div class="order"><span>Romantic Dinner Setup</span><span>₹3,999</span></div>
+          <div class="order"><span>Birthday Balloon Décor</span><span>₹2,499</span></div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer"><div class="footer-bottom"><p>&copy; 2025 EvAnia. All Rights Reserved.</p></div></footer>
+
+  <script src="../scripts/auth.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded',()=>{
+      try{const u=JSON.parse(localStorage.getItem('evania_auth_user')||'null');if(u){document.getElementById('profileName').textContent=u.name||'User';document.getElementById('profileId').textContent=u.id||'-';}}catch(e){}
+    });
+  </script>
+</body>
+</html>
+
+

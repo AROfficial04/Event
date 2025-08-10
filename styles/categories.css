@@ -1,0 +1,152 @@
+/* Categories Slider Styles for EvAnia */
+
+.categories-slider {
+    padding: 4rem 0;
+    background-color: var(--white);
+}
+
+.slider-container {
+    position: relative;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow: hidden;
+    padding: 0 20px; /* Bug Fix 2: Add margins to slider container */
+}
+
+.slider-wrapper {
+    display: flex;
+    gap: 20px;
+    transition: transform var(--transition-normal);
+    cursor: grab;
+    padding: 10px 0;
+}
+
+.slider-wrapper:active {
+    cursor: grabbing;
+}
+
+.category-card {
+    flex: 0 0 250px;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition-normal);
+    position: relative;
+    text-decoration: none;
+    display: block;
+    cursor: pointer;
+}
+
+.category-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: var(--shadow-hover);
+}
+
+.category-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    transition: var(--transition-normal);
+}
+
+.category-card:hover img {
+    transform: scale(1.05);
+}
+
+.category-card h3 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px;
+    margin: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+    color: var(--white);
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    background-color: var(--white);
+    border: none;
+    border-radius: 50%;
+    box-shadow: var(--shadow-md);
+    color: var(--text-dark);
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 5;
+    transition: var(--transition-fast);
+}
+
+.slider-btn:hover {
+    background-color: var(--light-pink);
+    color: var(--ruby);
+}
+
+.slider-btn.prev {
+    left: 5px;
+}
+
+.slider-btn.next {
+    right: 5px;
+}
+
+/* Responsive Categories Slider */
+@media (max-width: 992px) {
+    .category-card {
+        flex: 0 0 220px;
+    }
+    
+    .category-card h3 {
+        font-size: 1.1rem;
+        padding: 12px;
+    }
+}
+
+@media (max-width: 768px) {
+    .categories-slider {
+        padding: 3rem 0;
+    }
+    
+    .category-card {
+        flex: 0 0 180px;
+    }
+    
+    .category-card img {
+        height: 150px;
+    }
+    
+    .category-card h3 {
+        font-size: 1rem;
+        padding: 10px;
+    }
+}
+
+@media (max-width: 576px) {
+    .slider-container {
+        width: 95%;
+        padding: 0 10px; /* Adjusted margin for mobile */
+    }
+    
+    .category-card {
+        flex: 0 0 150px;
+    }
+    
+    .category-card img {
+        height: 120px;
+    }
+    
+    .slider-btn {
+        width: 35px;
+        height: 35px;
+    }
+}
